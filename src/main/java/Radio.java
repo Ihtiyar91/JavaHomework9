@@ -1,33 +1,36 @@
 public class Radio {
     private int currentRadioStation;
+    public int MaxStation = 9;
+    public int MinStation = 0;
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
+
     public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
+        if (newCurrentRadioStation < MinStation) {
             return;
         }
-        if (newCurrentRadioStation > 9) {
+        if (newCurrentRadioStation > MaxStation) {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
     }
 
     public void nextRadioStation() {
-        if (currentRadioStation < 9) {
-            currentRadioStation = currentRadioStation + 1;
+        if ((currentRadioStation ) == MaxStation) {
+            currentRadioStation = MinStation;
+        } else {
+            this.currentRadioStation = currentRadioStation + 1;
         }
-        else if (currentRadioStation == 9) {
-            currentRadioStation = 0;
-        }
+
     }
+
     public void prevRadioStation() {
-        if (currentRadioStation > 0) {
-            currentRadioStation = currentRadioStation - 1;
-        }
-        else if (currentRadioStation == 0) {
-            currentRadioStation = 9;
+        if ((currentRadioStation) == MinStation) {
+            currentRadioStation = MaxStation;
+        } else  {
+            this.currentRadioStation = currentRadioStation - 1;
         }
 
     }
@@ -37,6 +40,7 @@ public class Radio {
     public int getCurrentVolume() {
         return currentVolume;
     }
+
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume < 0) {
             return;
@@ -46,12 +50,14 @@ public class Radio {
         }
         currentVolume = newCurrentVolume;
     }
+
     public void increaseVolume() {
         if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
 
         }
     }
+
     public void decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
