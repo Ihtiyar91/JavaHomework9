@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
     @Test
     public void test() {
-        Radio rad = new Radio(20,19,0);
+        Radio rad = new Radio(20);
         rad .setCurrentRadioStation(15);
         Assertions.assertEquals(15, rad.getCurrentRadioStation());
     }
     @Test
     public void shouldNumberRadioStation() {
-        Radio rad = new Radio(10,9,0);
+        Radio rad = new Radio(10);
         Assertions.assertEquals(10, rad.getNumberCurrentStation());
     }
     @Test
